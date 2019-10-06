@@ -10,8 +10,8 @@ class MainActivity : AppCompatActivity() {
     val ADAM = "-אדם-"
     val GOD = "-אלוהים-"
 
-    lateinit var godList: MutableList<String>
-    lateinit var manList: MutableList<String>
+    lateinit var godList: ArrayList<String>
+    lateinit var manList: ArrayList<String>
     private var round = 0
     private var manMode = true
 
@@ -23,16 +23,18 @@ class MainActivity : AppCompatActivity() {
 
         getData()
 
-        generalOperation()
+        sendData()
     }
 
 
-    private fun generalOperation() {
+    private fun sendData() {
         val intent1=Intent(this,AnimationScreen::class.java)
 
-        intent1.putExtra(MANMOD,manMode)
 
-        // round=1
+        intent1.putStringArrayListExtra(AnimationScreen.MANNL,manList)
+        intent1.putStringArrayListExtra(AnimationScreen.GODDL,godList)
+
+      /*  // round=1
         if (manMode) {
             intent1.putExtra(SPEAKING,manList[round])
 
@@ -43,7 +45,7 @@ class MainActivity : AppCompatActivity() {
             // operateGoddy(godList[round])
             round++
             manMode = true
-        }
+        }*/
 
         startActivity(intent1)
     }
@@ -53,8 +55,8 @@ class MainActivity : AppCompatActivity() {
             it.readText()
         }
         text = text.replace("\r", "")
-        godList = mutableListOf()
-        manList = mutableListOf()
+        godList = arrayListOf()
+        manList = arrayListOf()
         var list1 = text.split(ADAM)
         for (element in list1) {
             if (element != "" && element.length > 15) {
