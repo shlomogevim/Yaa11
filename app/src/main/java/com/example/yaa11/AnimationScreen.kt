@@ -18,6 +18,7 @@ class AnimationScreen : AppCompatActivity() {
     lateinit var godList: ArrayList<String>
     lateinit var manList: ArrayList<String>
     var manMode = true
+    //var sevev = 0
     var sevev = 0
 
     val wi = Resources.getSystem().displayMetrics.widthPixels.toFloat()
@@ -56,7 +57,7 @@ class AnimationScreen : AppCompatActivity() {
     }
 
     private fun generalOperation() {
-        // sevev=1
+
         var speaking = ""
         if (manMode) {
             //Its man position
@@ -82,6 +83,28 @@ class AnimationScreen : AppCompatActivity() {
 
             1 -> animationUti.godTranslaion10(arr, godSpeaking1, godSpeaking1A)
 
+            2 -> animationUti.godTranslation20(arr, godSpeaking1, godSpeaking2)
+
+            3 -> animationUti.godTranslaion30(arr, godSpeaking1, godSpeaking2, godSpeaking3)
+
+            4 -> animationUti.godTranslaion40(
+                arr,
+                godSpeaking1,
+                godSpeaking2,
+                godSpeaking3,
+                godSpeaking4
+            )
+
+            5 -> animationUti.godTranslaion50(
+                arr,
+                godSpeaking1,
+                godSpeaking2,
+                godSpeaking3,
+                godSpeaking4,
+                godSpeaking5
+            )
+
+
         }
     }
 
@@ -89,7 +112,28 @@ class AnimationScreen : AppCompatActivity() {
         val arr = st.split("\n")
         when (arr.size) {
 
+            1 -> animationUti.manTranslation10(arr, manSpeaking1)
+
             2 -> animationUti.manTranslation20(arr, manSpeaking1, manSpeaking2)
+
+            3 -> animationUti.manTranslaion30(arr, manSpeaking1, manSpeaking2, manSpeaking3)
+
+            4 -> animationUti.manTranslaion40(
+                arr,
+                manSpeaking1,
+                manSpeaking2,
+                manSpeaking3,
+                manSpeaking4
+            )
+
+            5 -> animationUti.manTranslaion50(
+                arr,
+                manSpeaking1,
+                manSpeaking2,
+                manSpeaking3,
+                manSpeaking4,
+                manSpeaking5
+            )
 
 
         }
